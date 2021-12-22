@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML FORM 데이터 전송 </title>
+</head>
+<body>
+<!--form action 을 save 로 설정하고 , post 로-->
+<form action="/save" method="post">
+  <input type="text" name="username"/>
+  <input type="text" name="age"/>
+  <button type="submit">전송</button>
+</form>
+<!-- user name 폼에 kim 을 넣고 , age 폼에 20을 넣고 submit-전송 을 누르면 HTTP 요청 메세지가 아래와 같이 생성된다. -->
+</body>
+</html>
+
+
+<!--웹브라우저가 생성한 요청 HTTP 메세지 -->
+<!--
+
+POST /save HTTP/1.1
+Host: localhost:8080
+Content-Type: application/x-www-form-urlencoded
+username=kim&age=20
+
+-->
