@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML FORM 을 이용한 HTTP 요청 메세지 생성 2 - multipart form - data </title>
+</head>
+<body>
+<form action="/save" method="post" enctype="multipart/form-data">
+  <input type="text" name="username"/>
+  <input type="text" name="age"/>
+  <input type="file" name="file1"/>
+  <button type="submit">전송</button>
+</form>
+
+</body>
+</html>
+
+<!-- 웹브라우저가 생성한 HTTP 요청 메세지 -->
+
+<!--
+POST /save HTTP/1.1
+Host: localhost:8080
+Content-Type: multipart/form-data; boundary=-----XXX
+Content-Length: 10457
+
+------XXX
+Content-Disposition: form-data; name="username"
+
+kim
+------XXX
+Content-Disposition: form-data; name="age"
+
+20
+------XXX
+Content-Disposition: form-data; name="file1"; filename="intro.png" Content-Type: image/png
+
+109238a9o0p3eqwokjasd09ou3oirjwoe9u34ouief...
+------XXX--
+
+-->
+
+<!-- 유저 정보 뿐만 아니라 , file 까지 같이 전송해야 하는 경우이다.
+여러 데이터에 대한 데이터를 나누어서 전송한다. 주로 binary data 를 전송하는 경우에 사용한다. -->
